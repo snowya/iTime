@@ -1,9 +1,9 @@
 package com.jnu.student.myapplication;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 
 import android.view.View;
 
@@ -23,6 +23,7 @@ import android.view.Menu;
 
 public class MainActivity extends AppCompatActivity {
 
+    public static final int REQUEST_CODE = 902;
     private AppBarConfiguration mAppBarConfiguration;
 
     @Override
@@ -31,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // 顶部标题栏
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.event_activity_toolbar);
         setSupportActionBar(toolbar);
 
         // 右下点击图标及其相应事件
@@ -39,8 +40,8 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Intent intent = new Intent(MainActivity.this, NewEventActivity.class);
+                startActivityForResult(intent, REQUEST_CODE);
             }
         });
 

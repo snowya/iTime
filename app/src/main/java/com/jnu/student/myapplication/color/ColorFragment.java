@@ -1,4 +1,4 @@
-package com.jnu.student.myapplication.ui.color;
+package com.jnu.student.myapplication.color;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
