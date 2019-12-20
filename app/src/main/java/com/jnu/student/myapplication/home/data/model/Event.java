@@ -1,32 +1,51 @@
 package com.jnu.student.myapplication.home.data.model;
 
-import android.media.Image;
-
+import java.io.File;
+import java.io.Serializable;
 import java.util.Date;
 
-public class Event {
-    private int coverId;
+public class Event implements Serializable {
+    private String cover;
     private int day;
     private String title;
+    private String period;
+    private String description;
     private Date date;
 
-    public Event(int coverId, int day, String title, Date date) {
-        this.coverId = coverId;
-        this.day = day;
+    public Event(String cover, String title, String description, String period, Date date) {
+        this.cover = cover;
         this.title = title;
+        this.period = period;
+        this.description = description;
         this.date = date;
     }
 
-    public int getCoverId() {
-        return coverId;
+    public String getPeriod() {
+        return period;
     }
 
-    public void setCoverId(int cover) {
-        this.coverId = cover;
+    public void setPeriod(String period) {
+        this.period = period;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getCover() {
+        return cover;
+    }
+
+    public void setCover(String cover) {
+        this.cover = cover;
     }
 
     public int getDay() {
-        return day;
+        return (int) ((date.getTime() - new Date().getTime()) / 1000 / 60 / 60 / 24);
     }
 
     public void setDay(int day) {
