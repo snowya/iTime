@@ -10,11 +10,4 @@
         android:name="com.jnu.student.myapplication.home.HomeFragment"
         android:label="@string/menu_home"
         tools:layout="@layout/fragment_home" />
-
-    <fragment
-        android:id="@+id/nav_color"
-        android:name="com.jnu.student.myapplication.color.ColorFragment"
-        android:label="@string/menu_color"
-        tools:layout="@layout/fragment_color" />
-
 </navigation>

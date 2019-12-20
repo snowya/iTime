@@ -8,6 +8,7 @@
     tools:context=".UpdateEventActivity">
 
     <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/cover"
         android:layout_width="match_parent"
         android:layout_height="220dp"
         android:background="@drawable/event" />
@@ -28,6 +29,7 @@
             app:popupTheme="@style/AppTheme.PopupOverlay">
 
             <Button
+                android:id="@+id/update_event_back"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:background="@drawable/back" />
@@ -61,7 +63,7 @@
             android:contentDescription="TODO" />
 
         <TextView
-            android:id="@+id/day"
+            android:id="@+id/title"
             android:layout_width="wrap_content"
             android:layout_height="25dp"
             android:layout_alignParentStart="true"
@@ -71,13 +73,13 @@
             android:layout_marginLeft="80dp"
             android:layout_marginTop="25dp"
             android:gravity="center"
-            android:text="china"
+            android:text="title"
             android:textColor="@color/black" />
 
     </RelativeLayout>
 
     <RelativeLayout
-        android:id="@+id/time_layout"
+        android:id="@+id/date_layout"
         android:layout_width="match_parent"
         android:layout_height="75dp"
         android:layout_alignParentTop="true"
@@ -110,12 +112,12 @@
             android:layout_marginTop="15dp"
             android:layout_marginBottom="35dp"
             android:gravity="center"
-            android:text="china"
+            android:text="0 DAYS"
             android:textColor="@color/black"
             android:textSize="16sp" />
 
         <TextView
-            android:id="@+id/time"
+            android:id="@+id/date_description"
             android:layout_width="wrap_content"
             android:layout_height="20dp"
             android:layout_alignParentStart="true"
@@ -125,12 +127,12 @@
             android:layout_marginLeft="80dp"
             android:layout_marginTop="40dp"
             android:gravity="center"
-            android:text="china" />
+            android:text="Jan 1 1970" />
 
     </RelativeLayout>
 
     <RelativeLayout
-        android:id="@+id/clock"
+        android:id="@+id/clock_layout"
         android:layout_width="match_parent"
         android:layout_height="75dp"
         android:layout_alignParentStart="true"

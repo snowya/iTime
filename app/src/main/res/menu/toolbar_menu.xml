@@ -2,17 +2,17 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/action_search"
+        android:id="@+id/action_empty"
         android:icon="@drawable/empty"
         android:title="empty"
         app:showAsAction="always" />
     <item
-        android:id="@+id/action_notifications"
+        android:id="@+id/action_share"
         android:icon="@drawable/share"
         android:title="share"
         app:showAsAction="always" />
     <item
-        android:id="@+id/action_settings"
+        android:id="@+id/action_edit"
         android:icon="@drawable/edit"
         android:title="edit"
         app:showAsAction="always" />
