@@ -1,14 +1,11 @@
 package com.jnu.student.myapplication.home;
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Build;
 import android.os.Bundle;
@@ -20,7 +17,6 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.annotation.NonNull;
@@ -28,21 +24,16 @@ import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 
 import com.jnu.student.myapplication.MainActivity;
-import com.jnu.student.myapplication.NewEventActivity;
 import com.jnu.student.myapplication.R;
-import com.jnu.student.myapplication.UpdateEventActivity;
+import com.jnu.student.myapplication.EventDetailActivity;
 import com.jnu.student.myapplication.home.data.FileDataSource;
 import com.jnu.student.myapplication.home.data.model.Event;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import static android.app.Activity.RESULT_OK;
-import static com.jnu.student.myapplication.MainActivity.REQUEST_CODE_NEW_EVENT;
 import static com.jnu.student.myapplication.MainActivity.REQUEST_CODE_UPDATE_EVENT;
-import static com.jnu.student.myapplication.MainActivity.navController;
 import static java.lang.Math.min;
 
 public class HomeFragment extends Fragment implements AdapterView.OnItemClickListener {
@@ -71,7 +62,7 @@ public class HomeFragment extends Fragment implements AdapterView.OnItemClickLis
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         Event event=theEvents.get(position);
-        Intent intent = new Intent(getContext(), UpdateEventActivity.class);
+        Intent intent = new Intent(getContext(), EventDetailActivity.class);
         intent.putExtra("position", position);
         intent.putExtra("cover", event.getCover());
         intent.putExtra("date", event.getDate().toString());
