@@ -17,6 +17,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.TimePicker;
@@ -41,10 +42,11 @@ import androidx.core.app.ActivityCompat;
 @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
 public class UpdateEventActivity extends AppCompatActivity implements View.OnClickListener, DatePicker.OnDateChangedListener, TimePicker.OnTimeChangedListener {
     private Context context;
-    RelativeLayout pic_layout;
+
     // 显示的控件
     private TextView date_describe, period_describe;
     private EditText eTitle,eDescription;
+    ImageView pic;
 
     private int year, month, day, hour, minute;
     //在TextView上显示的字符
@@ -118,9 +120,10 @@ public class UpdateEventActivity extends AppCompatActivity implements View.OnCli
         // 显示图片的控件
         RelativeLayout image_layout = (RelativeLayout) findViewById(R.id.image_layout);
         image_layout.setOnClickListener(this);
-        pic_layout = (RelativeLayout) findViewById(R.id.top);
+        RelativeLayout pic_layout = (RelativeLayout) findViewById(R.id.top);
+        pic=pic_layout.findViewById(R.id.cover);
         if(color!=0)
-            pic_layout.setBackgroundColor(color);
+            pic.setBackgroundColor(color);
     }
 
     /**
@@ -132,9 +135,9 @@ public class UpdateEventActivity extends AppCompatActivity implements View.OnCli
         date_describe.setText(MainActivity.dateToString(new Date(date),"yyyy年MM月dd日 HH时mm分"));
         period_describe.setText(period);
         if(!cover.equals("")) {
-            pic_layout.setBackground(Drawable.createFromPath(cover));
+            pic.setBackground(Drawable.createFromPath(cover));
         } else {
-            pic_layout.setBackground(getResources().getDrawable(R.drawable.event));
+            pic.setBackground(getResources().getDrawable(R.drawable.event));
         }
         setDateTime();
     }
@@ -231,7 +234,7 @@ public class UpdateEventActivity extends AppCompatActivity implements View.OnCli
                 if (dateTime.length() > 0) { //清除上次记录的日期
                     dateTime.delete(0, dateTime.length());
                 }
-                dateTime.append(String.valueOf(year)).append("年").append(String.valueOf(month+1)).append("月").append(day).append("日");
+                dateTime.append(String.valueOf(year)).append("年").append(String.valueOf((month+1)%12)).append("月").append(day).append("日");
                 time_dialog();
             }
         });
@@ -351,7 +354,7 @@ public class UpdateEventActivity extends AppCompatActivity implements View.OnCli
                         //获取到裁剪后的图像
                         Bitmap bm = MediaStore.Images.Media.getBitmap(this.getContentResolver(), uri);
                         Drawable drawable = new BitmapDrawable(getResources(), bm);
-                        pic_layout.setBackground(drawable);
+                        pic.setBackground(drawable);
                     } catch (IOException e) {
                         e.printStackTrace();
                     }

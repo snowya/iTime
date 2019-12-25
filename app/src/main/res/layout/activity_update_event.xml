@@ -7,8 +7,13 @@
     <RelativeLayout
         android:id="@+id/top"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorAccent" >
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/cover"
+            android:layout_width="match_parent"
+            android:layout_height="220dp"
+            android:background="@color/colorAccent" />
 
         <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
