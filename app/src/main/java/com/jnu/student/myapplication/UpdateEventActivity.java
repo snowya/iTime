@@ -54,6 +54,7 @@ public class UpdateEventActivity extends AppCompatActivity implements Toolbar.On
             @Override
             public void onClick(View v) {
                 stopThread=true;
+                setResult(RESULT_OK,new Intent());
                 UpdateEventActivity.this.finish();
             }
         });
