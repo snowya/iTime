@@ -65,7 +65,7 @@ public class UpdateEventActivity extends AppCompatActivity implements View.OnCli
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_new_event);
+        setContentView(R.layout.activity_update_event);
 
         context = this;
         dateTime = new StringBuffer();
