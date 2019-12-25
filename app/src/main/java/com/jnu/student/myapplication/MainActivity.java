@@ -1,12 +1,10 @@
 package com.jnu.student.myapplication;
 
 import android.annotation.SuppressLint;
-import android.app.Fragment;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
-import android.os.Build;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -56,7 +54,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, NewEventActivity.class);
+                Intent intent = new Intent(MainActivity.this, UpdateEventActivity.class);
                 intent.putExtra("color", themeColor);
                 startActivityForResult(intent, REQUEST_CODE_NEW_EVENT);
             }
