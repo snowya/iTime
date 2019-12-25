@@ -168,7 +168,7 @@ public class EventDetailActivity extends AppCompatActivity implements Toolbar.On
                 // do sth
                 break;
             case R.id.action_edit:
-                Intent intent = new Intent(this, NewEventActivity.class);
+                Intent intent = new Intent(this, UpdateEventActivity.class);
                 intent.putExtra("position", position);
                 intent.putExtra("cover", cover);
                 intent.putExtra("date", date);
