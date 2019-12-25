@@ -23,7 +23,7 @@
         <activity
             android:name=".EventDetailActivity">
         </activity>
-        <activity android:name=".NewEventActivity">
+        <activity android:name=".UpdateEventActivity">
         </activity>
     </application>
 

@@ -17,7 +17,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.TimePicker;
@@ -40,7 +39,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
 
 @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
-public class NewEventActivity extends AppCompatActivity implements View.OnClickListener, DatePicker.OnDateChangedListener, TimePicker.OnTimeChangedListener {
+public class UpdateEventActivity extends AppCompatActivity implements View.OnClickListener, DatePicker.OnDateChangedListener, TimePicker.OnTimeChangedListener {
     private Context context;
     RelativeLayout pic_layout;
     // 显示的控件
@@ -97,7 +96,7 @@ public class NewEventActivity extends AppCompatActivity implements View.OnClickL
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                NewEventActivity.this.finish();
+                UpdateEventActivity.this.finish();
             }
         });
         save.setOnClickListener(this);
@@ -195,18 +194,18 @@ public class NewEventActivity extends AppCompatActivity implements View.OnClickL
             imgPath=img.getAbsolutePath();
         }
         Event event = new Event(imgPath, eTitle.getText().toString(), eDescription.getText().toString(), period_describe.getText().toString(), date);
-        fileDataSource=new FileDataSource(NewEventActivity.this);
+        fileDataSource=new FileDataSource(UpdateEventActivity.this);
         fileDataSource.addEvent(event);
 
         setResult(RESULT_OK,new Intent());
-        NewEventActivity.this.finish();
+        UpdateEventActivity.this.finish();
     }
 
     // 修改数据
     private void edit () {
         Date date = MainActivity.stringToDate(date_describe.getText().toString()+"00秒");
         Event event = new Event(cover, eTitle.getText().toString(), eDescription.getText().toString(), period_describe.getText().toString(), date);
-        fileDataSource=new FileDataSource(NewEventActivity.this);
+        fileDataSource=new FileDataSource(UpdateEventActivity.this);
         ArrayList<Event> events=fileDataSource.load();
         events.set(position,event);
         fileDataSource.save();
@@ -219,7 +218,7 @@ public class NewEventActivity extends AppCompatActivity implements View.OnClickL
         intent.putExtra("description", event.getDescription());
         intent.putExtra("period", event.getPeriod());
         setResult(RESULT_OK,intent);
-        NewEventActivity.this.finish();
+        UpdateEventActivity.this.finish();
     }
 
     // 弹出日期时间选择框
@@ -414,7 +413,7 @@ public class NewEventActivity extends AppCompatActivity implements View.OnClickL
         if (permission != PackageManager.PERMISSION_GRANTED) {
             // We don't have permission so prompt the user
             ActivityCompat.requestPermissions(
-                    NewEventActivity.this,
+                    UpdateEventActivity.this,
                     PERMISSIONS_STORAGE,
                     REQUEST_EXTERNAL_STORAGE);
         }
