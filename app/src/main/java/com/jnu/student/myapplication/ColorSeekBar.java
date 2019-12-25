@@ -22,8 +22,6 @@ public class ColorSeekBar extends View {
     private float sWidth,sHeight;
     private float x,y;
     private float mRadius;
-    private int startColor=Color.BLACK;
-    private int endColor=Color.WHITE;
     private int[] colorArray;
     private OnColorSelectedListener onColorSelectedListener=null;
 
@@ -38,8 +36,6 @@ public class ColorSeekBar extends View {
 
     public void setColor(int startColor,int endColor, int ...colors){
         colorArray=new int[colors.length+2];
-        this.startColor=startColor;
-        this.endColor=endColor;
         colorArray[0]=startColor;
         System.arraycopy(colors,0,colorArray,1,colors.length);
         colorArray[colors.length+1]=endColor;
