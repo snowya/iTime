@@ -320,7 +320,7 @@ public class NewEventActivity extends AppCompatActivity implements View.OnClickL
      */
     private void chooseFromGallery() {
         //构建一个内容选择的Intent
-        Intent intent = new Intent(Intent.ACTION_PICK);
+        Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
         //设置选择类型为图片类型
         intent.setType("image/*");
         verifyPermission(this);
