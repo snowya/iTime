@@ -25,10 +25,7 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import static com.jnu.student.myapplication.MainActivity.REQUEST_CODE_EDIT_EVENT;
-import static com.jnu.student.myapplication.MainActivity.REQUEST_CODE_UPDATE_EVENT;
-
-public class UpdateEventActivity extends AppCompatActivity implements Toolbar.OnMenuItemClickListener {
+public class EventDetailActivity extends AppCompatActivity implements Toolbar.OnMenuItemClickListener {
     int position;
     long day,hour,minute,second,ms;
     TextView time_to_day;
@@ -40,7 +37,7 @@ public class UpdateEventActivity extends AppCompatActivity implements Toolbar.On
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_update_event);
+        setContentView(R.layout.activity_event_detail);
 
         // 顶部标题栏
         Toolbar toolbar = findViewById(R.id.event_activity_toolbar);
@@ -55,7 +52,7 @@ public class UpdateEventActivity extends AppCompatActivity implements Toolbar.On
             public void onClick(View v) {
                 stopThread=true;
                 setResult(RESULT_OK,new Intent());
-                UpdateEventActivity.this.finish();
+                EventDetailActivity.this.finish();
             }
         });
         // 初始化控件
@@ -165,7 +162,7 @@ public class UpdateEventActivity extends AppCompatActivity implements Toolbar.On
                 fileDataSource.save();
                 setResult(RESULT_OK,new Intent());
                 stopThread=true;
-                UpdateEventActivity.this.finish();
+                EventDetailActivity.this.finish();
                 break;
             case R.id.action_share:
                 // do sth
