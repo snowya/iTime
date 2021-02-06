@@ -1,6 +1,8 @@
 # iTime
 A countdown software
 
+![image](https://raw.githubusercontent.com/snowya/iTime/master/app/src/main/res/drawable/1.png)
+
 软件功能
 ====
 1、首页显示倒计时列表，图片上有倒计时<br>
